@@ -143,10 +143,14 @@ try:
         asesor_tabla['PRE-ARCHIVO'] = asesor_tabla['PRE-ARCHIVO'].astype(int)
         
         # Ordenar por total de expedientes
-        asesor_tabla = asesor_tabla.sort_values('Total Expedientes', ascending=False)
-        
+        asesor_tabla = asesor_tabla.sort_values('Total Expedientes', ascending=False).reset_index(drop=True)
+
+        # Crear numeración desde 1
+        asesor_tabla.index = asesor_tabla.index + 1
+        asesor_tabla.reset_index(inplace=True)
+        asesor_tabla.rename(columns={'index': 'N°'}, inplace=True)
         # Mostrar tabla
-        st.dataframe(asesor_tabla, use_container_width=True)
+        st.dataframe(asesor_tabla, use_container_width=True, hide_index=True)
     
     # Visualización adicional - Gráfico de barras para expedientes por asesor
     st.subheader("Distribución de Expedientes por Asesor")
