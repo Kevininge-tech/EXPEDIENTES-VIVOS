@@ -16,7 +16,7 @@ st.set_page_config(
 
 # Título y descripción
 st.title("📊 Dashboard de Expedientes")
-st.markdown("### Análisis de expedientes del H.M. CESAR LORDUY")
+st.markdown("### Análisis de expedientes del H.M. ÁLVARO ECHEVERRY")
 
 # Botón para limpiar caché y forzar recarga
 if st.sidebar.button("🔄 Recargar datos", use_container_width=True):
